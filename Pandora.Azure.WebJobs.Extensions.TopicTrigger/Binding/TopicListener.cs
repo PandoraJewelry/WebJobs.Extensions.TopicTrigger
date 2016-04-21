@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,7 +19,7 @@ namespace Pandora.Azure.WebJobs.Extensions.TopicTrigger.Binding
     internal class TopicListener : IListener
     {
         #region fields
-        private static readonly TraceSource _trace = new TraceSource(typeof(TopicListener).Assembly.GetName().Name, SourceLevels.Error);
+        private static readonly TraceSource _trace = new TraceSource(Consts.TraceName, SourceLevels.Error);
         private readonly TopicConfiguration _topicConfig;
         private readonly CancellationTokenSource _cancellationTokenSource;
         private readonly ITriggeredFunctionExecutor _executor;

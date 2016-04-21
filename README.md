@@ -1,7 +1,6 @@
 # Azure Webjobs SDK Extension for Azure ServiceBus
 
 ## Introduction
-
 This extension will enable recept of all messages on every subscription in a single **Topic** instead of needing to know the subscription name ahead of time like with `[ServiceBusTrigger]`
 
 Once referenced you can enable it on the `JobHostConfiguration` object.
@@ -26,8 +25,17 @@ This way you will only need to implement **one function** to receive all subscri
 ## Our use case
 We use [Azure Service Bus](5) to load balance the processing of [Microsoft Dynamics CRM](2) [data](3) into an [Azure SQL DB](4). Each subscription represents a single logical entity inside of a [remoteexecutioncontext](1). Each entity can be independently processed, but **must** be processed in order.
 
-## Installation
+##Tracing
+Tracing can be turned on by adding in
 
+	<switches>
+	  <add name="Pandora.Azure.WebJobs.Extensions.TopicTrigger" value="Verbose" />
+	</switches>
+	<sources>
+	  <source name="Pandora.Azure.WebJobs.Extensions.TopicTrigger" />
+	</sources>
+
+## Installation
 You can obtain it [through Nuget](https://www.nuget.org/packages/Pandora.Azure.WebJobs.Extensions.TopicTrigger/) with:
 
     Install-Package Pandora.Azure.WebJobs.Extensions.TopicTrigger

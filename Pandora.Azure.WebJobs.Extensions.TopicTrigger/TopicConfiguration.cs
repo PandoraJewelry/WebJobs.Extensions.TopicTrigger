@@ -13,5 +13,13 @@ namespace Pandora.Azure.WebJobs.Extensions.TopicTrigger
         public ISubscriptionFilter Filter { get; set; }
         public IMessageProcessor Processor { get; set; }
         public int ReScanInterval { get; set; }
+
+        public TopicConfiguration()
+        {
+            MessageOptions = new OnMessageOptions();
+            Filter = new EverySubscriptionFilter();
+            Processor = new MessageProcessor(MessageOptions);
+            ReScanInterval = 1;
+        }
     }
 }

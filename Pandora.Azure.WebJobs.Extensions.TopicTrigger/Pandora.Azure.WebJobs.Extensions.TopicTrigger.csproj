@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Binding\TopicParameterDescriptor.cs" />
+    <Compile Include="Consts.cs" />
     <Compile Include="Filters\EverySubscriptionFilter.cs" />
     <Compile Include="Filters\ISubscriptionFilter.cs" />
     <Compile Include="Processors\HalfLifeRenewMessageProcessor.cs" />

@@ -130,8 +130,9 @@ namespace Pandora.Azure.WebJobs.Extensions.TopicTrigger.Binding
         private async Task ScanAndUpdateForSubscriptionsAsync()
         {
             var v1 = await _manager.GetSubscriptionsAsync(_topicName);
-            var v2 = v1.Where(p => _topicConfig.Filter.Watch(_topicName, p.Name));
-            var watchme = new HashSet<string>(v2.Select(sub => sub.Name));
+            var v2 = v1.Where(p => p.Status == EntityStatus.Active);
+            var v3 = v2.Where(p => _topicConfig.Filter.Watch(_topicName, p.Name));
+            var watchme = new HashSet<string>(v3.Select(sub => sub.Name));
 
             int adding = 0;
             var addme = watchme.Where(name => !_listeners.ContainsKey(name));

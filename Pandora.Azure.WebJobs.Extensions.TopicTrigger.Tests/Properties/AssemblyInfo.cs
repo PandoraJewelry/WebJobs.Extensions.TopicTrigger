@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pandora.Azure.WebJobs.Extensions.TopicTrigger")]
-[assembly: AssemblyDescription("Azure Webjobs SDK Extension for Triggering on an entire Topic")]
+[assembly: AssemblyTitle("Pandora.Azure.WebJobs.Extensions.TopicTrigger.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("PandoraJewelry")]
-[assembly: AssemblyProduct("Pandora.Azure.WebJobs.Extensions.TopicTrigger")]
+[assembly: AssemblyCompany("Pandora")]
+[assembly: AssemblyProduct("Pandora.Azure.WebJobs.Extensions.TopicTrigger.Tests")]
 [assembly: AssemblyCopyright("Copyright © Pandora 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3f740171-78ec-4b84-9521-185480fea4ef")]
+[assembly: Guid("d808ba9e-e410-4be5-87fa-187ded0244d6")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,7 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.1.0")]
-
-[assembly: InternalsVisibleTo("Pandora.Azure.WebJobs.Extensions.TopicTrigger.Tests")]
-[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

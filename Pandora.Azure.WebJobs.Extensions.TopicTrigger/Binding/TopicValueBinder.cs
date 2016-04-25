@@ -1,12 +1,14 @@
 ﻿// Copyright (c) PandoraJewelry. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
+// Licensed under the MIT License. See License in the project root for license information.
 
 using Microsoft.Azure.WebJobs.Extensions.Bindings;
 using Microsoft.ServiceBus.Messaging;
 using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Xml;
 
 namespace Pandora.Azure.WebJobs.Extensions.TopicTrigger.Binding
 {
@@ -15,14 +17,19 @@ namespace Pandora.Azure.WebJobs.Extensions.TopicTrigger.Binding
         #region fields
         private const string JsonContentType = "application/json";
         private const string PlainTextType = "text/plain";
-        private readonly BrokeredMessage _value; 
+        private readonly BrokeredMessage _value;
         #endregion
 
+        #region constructors
         public TopicValueBinder(BrokeredMessage value, ParameterInfo parameter)
             : base(parameter.ParameterType)
         {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
             _value = value;
         }
+        #endregion
 
         public override object GetValue()
         {
@@ -44,8 +51,11 @@ namespace Pandora.Azure.WebJobs.Extensions.TopicTrigger.Binding
                     }
                     else
                     {
-                        var serializer = new DataContractSerializer(Type);
-                        return serializer.ReadObject(stream);
+                        using (var reader = XmlDictionaryReader.CreateBinaryReader(stream, XmlDictionaryReaderQuotas.Max))
+                        {
+                            var serializer = new DataContractSerializer(Type);
+                            return serializer.ReadObject(reader);
+                        }
                     }
                 }
             }

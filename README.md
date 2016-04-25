@@ -23,7 +23,7 @@ And decorate each function like this:
 This way you will only need to implement **one function** to receive all subscriptions messages, instead of one function per subscription as is the case with the `[ServiceBusTrigger]`.
 
 ## Our use case
-We use [Azure Service Bus](5) to load balance the processing of [Microsoft Dynamics CRM](2) [data](3) into an [Azure SQL DB](4). Each subscription represents a single logical entity inside of a [remoteexecutioncontext](1). Each entity can be independently processed, but **must** be processed in order.
+We use [Azure Service Bus][5] to load balance the processing of [Microsoft Dynamics CRM][2] [data][3] into an [Azure SQL DB][4]. Each subscription represents a single logical entity inside of a [remoteexecutioncontext][1]. Each entity can be independently processed, but **must** be processed in order.
 
 ##Tracing
 Tracing can be turned on by adding in
@@ -36,7 +36,7 @@ Tracing can be turned on by adding in
 	</sources>
 
 ## Installation
-You can obtain it [through Nuget](https://www.nuget.org/packages/Pandora.Azure.WebJobs.Extensions.TopicTrigger/) with:
+You can obtain it [through Nuget][0] with:
 
     Install-Package Pandora.Azure.WebJobs.Extensions.TopicTrigger
 
@@ -46,6 +46,7 @@ Or **clone** this repo and reference it.
   1. https://github.com/Azure/azure-webjobs-sdk
   2. https://github.com/Azure/azure-webjobs-sdk-extensions
   3. https://github.com/ealsur/WebJobs.Extensions.GroupQueueTrigger
+[0]: https://www.nuget.org/packages/Pandora.Azure.WebJobs.Extensions.TopicTrigger
 [1]: https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.remoteexecutioncontext.aspx
 [2]: https://www.microsoft.com/en-us/dynamics/crm.aspx
 [3]: https://msdn.microsoft.com/en-us/library/gg309677.aspx

@@ -22,6 +22,10 @@ And decorate each function like this:
 
 This way you will only need to implement **one function** to receive all subscriptions messages, instead of one function per subscription as is the case with the `[ServiceBusTrigger]`.
 
+## Built-in pipelines
+
+As of v0.3, the built in processors were gathered into their own [NuGet package][3] to prevent duplicate work.
+
 ## Our use case
 We use [Azure Service Bus][5] to load balance the processing of [Microsoft Dynamics CRM][2] [data][3] into an [Azure SQL DB][4]. Each subscription represents a single logical entity inside of a [remoteexecutioncontext][1]. Each entity can be independently processed, but **must** be processed in order.
 
@@ -50,5 +54,6 @@ Or **clone** this repo and reference it.
 [1]: https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.remoteexecutioncontext.aspx
 [2]: https://www.microsoft.com/en-us/dynamics/crm.aspx
 [3]: https://msdn.microsoft.com/en-us/library/gg309677.aspx
-[4]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
-[5]: https://azure.microsoft.com/en-us/documentation/services/service-bus/
+[4]: https://azure.microsoft.com/en-us/documentation/services/sql-database
+[5]: https://azure.microsoft.com/en-us/documentation/services/service-bus
+[6]: https://github.com/PandoraJewelry/WebJobs.PipelineCore.Processors

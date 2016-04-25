@@ -103,7 +103,6 @@
     <Compile Include="Consts.cs" />
     <Compile Include="Filters\EverySubscriptionFilter.cs" />
     <Compile Include="Filters\ISubscriptionFilter.cs" />
-    <Compile Include="Processors\HalfLifeRenewMessageProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TopicTriggerAttribute.cs" />
     <Compile Include="HostConfigurationExtensions.cs" />
